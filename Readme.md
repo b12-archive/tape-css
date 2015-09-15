@@ -29,12 +29,12 @@ tape-css
 
 <p align="center"><a
   title="Graphic by the great Justin Mezzell"
-  href="http://justinmezzell.tumblr.com/post/89957156723"
+  href="http://justinmezzell.tumblr.com/post/91142673693"
   >
   <br/>
   <br/>
   <img
-    src="Readme/….gif"
+    src="Readme/Cassette.gif"
     width="400"
     height="300"
   />
