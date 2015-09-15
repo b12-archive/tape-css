@@ -122,6 +122,8 @@ test('Every dog has some space to breathe', {
 })
 ```
 
+[hyperscript]:   https://www.npmjs.com/package/hyperscript
+
 ######  4
 
 Whenever you want to see how your layout actually looks like, use `test.only`. We’ll only execute this one test and we won’t clean up afterwards. That’s pretty useful while debugging.
