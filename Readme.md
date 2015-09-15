@@ -80,7 +80,7 @@ const test = require('tape-css')(tape);  // We don’t change `tape` in any way.
 
 ######  2
 
-Pass the DOM tree and styles you want to test. We’ll add it to the `<body>`[&ast;](https://github.com/studio-b12/tape-css/issues/1) before your test and clean up right after your test has ended.
+Pass the DOM tree and styles you want to test. We’ll add it to the `<body>`[&ast;](https://github.com/studio-b12/tape-css/issues/1) before your test begins – and clean them up right after it has ended.
 
 ```js
 test('Roses are red, <span>s are blue', {
