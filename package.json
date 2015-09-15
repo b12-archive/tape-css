@@ -1,7 +1,7 @@
 {
-  "name": "<!--name-->",
+  "name": "tape-css",
   "version": "0.0.0-work-in-progress",
-  "description": "<!--description-->",
+  "description": "CSS unit testing, tape-style",
   "dependencies": {},
   "scripts": {
     "clean": "git reset && echo '/node_modules/' > .gitignore && git add .gitignore && git stash save --include-untracked --keep-index '`npm run clean` trash can' && git clean --force -d && git reset --hard && echo '\nclean: Uncommitted and ignored files have been moved to git’s stash. To restore them run `git stash pop --quiet; git checkout .gitignore`.'",
@@ -32,6 +32,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "<!--repo-->"
+    "url": "git@github.com:studio-b12/tape-css"
   }
 }
