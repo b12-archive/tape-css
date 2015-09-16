@@ -104,16 +104,16 @@ test('Roses are red, <span>s are blue', {
 
 ```js
 const h = require('hyperscript');
-const firstRose = h('div.dog');
-const secondRose = h('div.dog');
+const dogOne = h('div.dog');
+const dogTwo = h('div.dog');
 
 test('Every dog has some space to breathe', {
-  dom: h('div', [firstRose, secondRose]),
+  dom: h('div', [dogOne, dogTwo]),
   style: '.dog { margin-bottom: 10px; }',
 }, (is) => {
   is.equal(
-    secondRose.getBoundingClientRect().bottom -
-    firstRose.getBoundingClientRect().top,
+    dogTwo.getBoundingClientRect().bottom -
+    dogOne.getBoundingClientRect().top,
     10,
     '10 px dog to dog'
   );
