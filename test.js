@@ -3,6 +3,7 @@ import tapeCss_ from './module';
 const test = require('tape-catch');
 const clone = require('clone');
 const {freeze} = Object;
+const {jsdom} = require('jsdom');
 
 const tape = require('tape');
 
@@ -138,8 +139,83 @@ test('Doesn’t change the `tape` API', (is) => {
   registerStreams();
 });
 
-test.skip('Adds and removes DOM', (is) => {
-  is.end();
+const doc = (typeof window !== 'undefined' && window.window === window ?
+  window.document :
+  jsdom('<!DOCTYPE html>').defaultView.document
+);
+
+test('Adds and removes DOM', (is) => {
+  const blindTape = tape.createHarness({exit: false});
+  const tapeCss = tapeCss_(blindTape);
+  blindTape.createStream();  // We don’t need to test the output of `tapeCss`.
+
+  is.plan(7);
+
+  const span = doc.createElement('span');
+
+  tapeCss('Whatever', {
+    dom: span,
+  }, (localIs) => {
+    is.equal(
+      span.parentNode,
+      doc.body,
+      'inserts a single element to the <body>'
+    );
+
+    localIs.end();
+
+    is.notOk(
+      doc.body.contains(span),
+      'removes the single element from the <body>'
+    );
+  });
+
+  const tree = doc.createDocumentFragment();
+  const button = doc.createElement('button');
+  const p = doc.createElement('p');
+  const div = doc.createElement('div');
+
+  tree.appendChild(button);
+  p.appendChild(div);
+  tree.appendChild(p);
+
+  tapeCss('Whatever', {
+    dom: tree,
+  }, (localIs) => {
+    is.ok(
+      doc.body.contains(button) &&
+      doc.body.contains(p) &&
+      doc.body.contains(div),
+      'inserts a whole DOM tree to the <body>'
+    );
+
+    is.equal(
+      button.parentNode,
+      doc.body,
+      'puts every element of the tree directly in the <body>'
+    );
+
+    is.equal(
+      div.parentNode,
+      p,
+      'keeps the internal DOM structure'
+    );
+
+    localIs.end();
+
+    is.notOk(
+      doc.body.contains(button) &&
+      doc.body.contains(p) &&
+      doc.body.contains(div),
+      'removes the whole tree from the <body> after the test'
+    );
+
+    is.equal(
+      div.parentNode,
+      p,
+      'doesn’t screw up the DOM structure while at it'
+    );
+  });
 });
 
 test.skip('Adds and removes styles', (is) => {
