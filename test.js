@@ -2,12 +2,14 @@ import tapeCss_ from './module';
 
 const test = require('tape-catch');
 const clone = require('clone');
-const deepFreeze = require('deep-freeze');
+const {freeze} = Object;
 
 const tape = require('tape');
 
 test('Doesn’t change the `tape` instance', (is) => {
-  const tapeClone = deepFreeze(clone(tape));
+  const tapeClone = clone(tape);
+  freeze(tapeClone.Test);
+  freeze(tapeClone);
 
   is.doesNotThrow(
     () => tapeCss_(tapeClone),
