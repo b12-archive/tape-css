@@ -1,1 +1,3 @@
-export default () => {};
+export default (tape) => {
+  return tape;
+};
