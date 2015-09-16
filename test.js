@@ -21,16 +21,18 @@ test('Doesn’t change the `tape` instance', (is) => {
 
 test('Doesn’t change the `tape` API', (is) => {
   const localTape = tape.createHarness({exit: false});
-  const localTest = tapeCss_(localTape);
+  const localTapeCss = tapeCss_(localTape);
 
   const tapStream = localTape.createStream({objectMode: true});
 
-  localTest('1', (localIs) => {
+  is.plan(13);
+
+  localTapeCss('1', (localIs) => {
     is.fail('`tape.only` works as before');
     localIs.end();
   });
 
-  localTest.only('2', (localIs) => {
+  localTapeCss.only('2', (localIs) => {
     localIs.pass();
     localIs.ok(true);
     localIs.notOk(false);
@@ -134,8 +136,6 @@ test('Doesn’t change the `tape` API', (is) => {
   );
 
   registerStreams();
-
-  is.end();
 });
 
 test.skip('Adds and removes DOM', (is) => {
