@@ -1,6 +1,19 @@
-const test = require('tape-catch');
+import tapeCss_ from './module';
 
-test.skip('Doesn’t change the `tape` instance', (is) => {
+const test = require('tape-catch');
+const clone = require('clone');
+const deepFreeze = require('deep-freeze');
+
+const tape = require('tape');
+
+test('Doesn’t change the `tape` instance', (is) => {
+  const tapeClone = deepFreeze(clone(tape));
+
+  is.doesNotThrow(
+    () => tapeCss_(tapeClone),
+    'doesn’t attempt to change any property'
+  );
+
   is.end();
 });
 
