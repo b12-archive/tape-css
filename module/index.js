@@ -21,9 +21,12 @@ export default (tape) => {
     // TODO: Throw if there’s no `document`;
 
     const wrappedCallback = (is) => {
-      if (dom) document.body.appendChild(dom);
+      if (dom) {
+        document.body.appendChild(dom);
+        is.on('end', () => document.body.removeChild(dom));
+      }
+
       callback(is);
-      if (dom) document.body.removeChild(dom);
     };
 
     tape(
