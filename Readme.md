@@ -148,6 +148,8 @@ We add two options to the `test` function:
 
 * `styles` – a string of CSS. We’ll add it as a `<style>` to the `<head>` before your test – and clean it up after your test has ended. Default: nothing.
 
+* `document` – a custom implementation of `document`. It may be useful for testing outside a browser. Default: `window.document`.
+
 [the API]:     https://github.com/substack/tape#methods
 
 

@@ -155,6 +155,7 @@ test('Adds and removes DOM', (is) => {
 
   tapeCss('Whatever', {
     dom: span,
+    document: doc,
   }, (localIs) => {
     is.equal(
       span.parentNode,

@@ -12,6 +12,14 @@ export default (tape) => {
 
     const {dom} = options;
 
+    const document = (
+      options.document ||
+      (typeof window !== 'undefined' && window.document) ||
+      null
+    );
+
+    // TODO: Throw if there’s no `document`;
+
     const wrappedCallback = (is) => {
       if (dom) document.body.appendChild(dom);
       callback(is);
