@@ -142,9 +142,9 @@ API
 
 <!-- @doxie.inject start -->
 <!-- Don’t remove or change the comment above – that can break automatic updates. -->
-<h3>
-  <div align="right"><sub><a href="http://jsig.biz/">JSIG</a></sub></div>
-  <pre>tapeCss(tape) => (
+<div align="right"><sub>JSIG SIGNATURE <a href="http://jsig.biz/">(?)</a></sub></div>
+```js
+tapeCss(tape) => (
   name?: String,
   options?: {
     // All `tape` options +
@@ -153,8 +153,8 @@ API
     document?:  Document
   },
   callback: Function
-) => void</pre>
-</h3>
+) => void
+```
 
 If you use tape, you’ll feel right at home. We don’t change [the API][] in any way.
 
