@@ -26,7 +26,7 @@ tape-css
 
 Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightweight as *[tape][]* itself.
 
-[tape]:        https://www.npmjs.com/package/tape
+[tape]:  https://www.npmjs.com/package/tape
 
 
 
