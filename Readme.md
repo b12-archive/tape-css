@@ -144,7 +144,7 @@ API
 <!-- Don’t remove or change the comment above – that can break automatic updates. -->
 <div align="right"><sub>JSIG SIGNATURE <a href="http://jsig.biz/">(?)</a></sub></div>
 ```js
-tapeCss(tape) => (
+test(tape) => (
   name?: String,
   options?: {
     // All `tape` options +
@@ -156,11 +156,11 @@ tapeCss(tape) => (
 ) => void
 ```
 
-If you use tape, you’ll feel right at home. We don’t change [the API][] in any way.
+If you use tape, you’ll feel right at home. Give us an instance of `tape`.
+We won’t change its [existing API][] in any way. We just add a couple
+of `options`:
 
-We add a couple of options to the `test` function:
-
-- `dom` – an Element or DocumentFragment. We’ll add it to the `<body>`
+- `dom` – one or more DOM elements. We’ll add it to the `<body>`
   before your test and clean it up after your test has ended.
   Default: nothing.
 
@@ -171,7 +171,7 @@ We add a couple of options to the `test` function:
 - `document` – a custom implementation of `document`. It may be useful
   for testing outside a browser. Default: `window.document`.
 
-[the API]:     https://github.com/substack/tape#methods
+[existing API]:     https://github.com/substack/tape#methods
 <!-- Don’t remove or change the comment below – that can break automatic updates. More info at <http://npm.im/doxie.inject>. -->
 <!-- @doxie.inject end -->
 
