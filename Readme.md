@@ -7,8 +7,8 @@
  [![David – status of dependencies
 ](https://img.shields.io/david/studio-b12/tape-css.svg?style=flat-square)
 ](https://david-dm.org/studio-b12/tape-css)
- [![Stability: experimental
-](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square)
+ [![Stability: alpha
+](https://github.com/studio-b12/tape-css/milestones/1.0)
 ](https://nodejs.org/api/documentation.html#documentation_stability_index)
  [![Code style: airbnb
 ](https://img.shields.io/badge/code%20style-airbnb-777777.svg?style=flat-square)
