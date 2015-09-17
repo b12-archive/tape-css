@@ -220,7 +220,36 @@ test('Adds and removes DOM', (is) => {
   });
 });
 
-test.skip('Adds and removes styles', (is) => {
+test('Adds and removes styles', (is) => {
+  const blindTape = tape.createHarness({exit: false});
+  const tapeCss = tapeCss_(blindTape);
+  blindTape.createStream();  // We don’t need to test the output of `tapeCss`.
+
+  is.plan(7);
+
+  const styles = 'span {font-size: 99px}';
+
+  tapeCss('Whatever', {
+    styles,
+    document: doc,
+  }, (localIs) => {
+    const styleElements = doc.head.getElementsByTagName('style');
+    const styleElement = styleElements[styleElements.length];
+
+    is.equal(
+      styleElement && styleElement.innerText,
+      styles,
+      'inserts our styles into the <head>'
+    );
+
+    localIs.end();
+
+    is.notOk(
+      doc.head.contains(styleElement),
+      'removes them after the test'
+    );
+  });
+
   is.end();
 });
 
