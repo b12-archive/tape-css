@@ -140,17 +140,7 @@ test('Works alright', /* … */);
 API
 ---
 
-If you use tape, you’ll feel right at home. We don’t change [the API][] in any way.
-
-We add two options to the `test` function:
-
-* `dom` – an Element or DocumentFragment. We’ll add it to the `<body>` before your test and clean it up after your test has ended. Default: nothing.
-
-* `styles` – a string of CSS. We’ll add it as a `<style>` to the `<head>` before your test – and clean it up after your test has ended. Default: nothing.
-
-* `document` – a custom implementation of `document`. It may be useful for testing outside a browser. Default: `window.document`.
-
-[the API]:     https://github.com/substack/tape#methods
+<!-- @doxie.inject start --><!-- @doxie.inject end -->
 
 
 
