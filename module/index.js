@@ -2,6 +2,7 @@ const assign = require('object-assign');
 const find = require('array-find');
 const drop = require('this-drop');
 const arrayFrom = require('array-from');
+const insertCss = require('insert-css');
 
 const DOCUMENT_FRAGMENT_NODE = 11;
 
@@ -43,9 +44,8 @@ export default (tape) => {
     const options = find(args, (arg) => typeof arg === 'object') || {};
     const callback = find(args, (arg) => typeof arg === 'function');
 
-    const {dom} = options;
-
-    // Get the `document` implementation.
+    // Get options.
+    const {dom, styles} = options;
     const document = (
       options.document ||
       (typeof window !== 'undefined' && window.document) ||
@@ -69,6 +69,10 @@ export default (tape) => {
         is.on('end', () => {
           domToRemove.forEach(element => document.body.removeChild(element));
         });
+      }
+
+      if (styles) {
+        insertCss(styles, {document});
       }
 
       // Run the original callback.

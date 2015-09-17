@@ -5,6 +5,7 @@
   "dependencies": {
     "array-find": "^1.0.0",
     "array-from": "^2.0.2",
+    "insert-css": "tomekwi/insert-css#7d2db73b9165cf62f23bc8223af7e52c51379cbd",
     "object-assign": "^4.0.1",
     "this-drop": "^1.0.1"
   },
