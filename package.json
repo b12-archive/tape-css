@@ -4,6 +4,7 @@
   "description": "CSS unit testing, tape-style",
   "dependencies": {
     "array-find": "^1.0.0",
+    "array-from": "^2.0.2",
     "object-assign": "^4.0.1",
     "this-drop": "^1.0.1"
   },

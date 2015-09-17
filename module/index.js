@@ -1,6 +1,9 @@
 const assign = require('object-assign');
 const find = require('array-find');
 const drop = require('this-drop');
+const arrayFrom = require('array-from');
+
+const DOCUMENT_FRAGMENT_NODE = 11;
 
 export default (tape) => {
   const tapeCss = (...args) => {
@@ -12,18 +15,26 @@ export default (tape) => {
 
     const {dom} = options;
 
+    // Get the `document` implementation.
     const document = (
       options.document ||
       (typeof window !== 'undefined' && window.document) ||
       null
     );
-
     // TODO: Throw if there’s no `document`;
 
     const wrappedCallback = (is) => {
       if (dom) {
         document.body.appendChild(dom);
-        is.on('end', () => document.body.removeChild(dom));
+
+        const domToRemove = (dom.nodeType === DOCUMENT_FRAGMENT_NODE ?
+          arrayFrom(dom.children) :
+          [dom]
+        );
+
+        is.on('end', () => {
+          domToRemove.forEach(element => document.body.removeChild(element));
+        });
       }
 
       callback(is);
