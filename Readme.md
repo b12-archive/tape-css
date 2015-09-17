@@ -145,14 +145,14 @@ API
 <div align="right"><sub>JSIG SIGNATURE <a href="http://jsig.biz/">(?)</a></sub></div>
 ```js
 test(tape) => (
-  name?:     String,
-  options?:  {
+  name?        : String,
+  options?: {
     // All original `tape` options, and:
-    dom?:       Element | DocumentFragment
-    styles?:    String
-    document?:  Document
+    dom?       : Element | DocumentFragment
+    styles?    : String
+    document?  : Document
   },
-  callback:  Function
+  callback     : Function
 ) => void
 ```
 
