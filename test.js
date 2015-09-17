@@ -206,8 +206,8 @@ test('Adds and removes DOM', (is) => {
     localIs.end();
 
     is.notOk(
-      doc.body.contains(button) &&
-      doc.body.contains(p) &&
+      doc.body.contains(button) ||
+      doc.body.contains(p) ||
       doc.body.contains(div),
       'removes the whole tree from the <body> after the test'
     );

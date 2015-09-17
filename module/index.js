@@ -25,12 +25,12 @@ export default (tape) => {
 
     const wrappedCallback = (is) => {
       if (dom) {
-        document.body.appendChild(dom);
-
         const domToRemove = (dom.nodeType === DOCUMENT_FRAGMENT_NODE ?
           arrayFrom(dom.children) :
           [dom]
         );
+
+        document.body.appendChild(dom);
 
         is.on('end', () => {
           domToRemove.forEach(element => document.body.removeChild(element));
