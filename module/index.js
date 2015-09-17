@@ -72,7 +72,8 @@ export default (tape) => {
       }
 
       if (styles) {
-        insertCss(styles, {document});
+        const styleElement = insertCss(styles, {document});
+        is.on('end', () => styleElement.parentNode.removeChild(styleElement));
       }
 
       // Run the original callback.
