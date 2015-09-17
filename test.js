@@ -147,7 +147,8 @@ const doc = (typeof window !== 'undefined' && window.window === window ?
 test('Adds and removes DOM', (is) => {
   const blindTape = tape.createHarness({exit: false});
   const tapeCss = tapeCss_(blindTape);
-  blindTape.createStream();  // We don’t need to test the output of `tapeCss`.
+  blindTape.createStream({objectMode: true});
+    // No need to test the output of `tapeCss` unless our tests fail.
 
   is.plan(7);
 
@@ -223,9 +224,10 @@ test('Adds and removes DOM', (is) => {
 test('Adds and removes styles', (is) => {
   const blindTape = tape.createHarness({exit: false});
   const tapeCss = tapeCss_(blindTape);
-  blindTape.createStream();  // We don’t need to test the output of `tapeCss`.
+  blindTape.createStream({objectMode: true});
+    // No need to test the output of `tapeCss` unless our tests fail.
 
-  is.plan(7);
+  is.plan(2);
 
   const styles = 'span {font-size: 99px}';
 
@@ -234,10 +236,10 @@ test('Adds and removes styles', (is) => {
     document: doc,
   }, (localIs) => {
     const styleElements = doc.head.getElementsByTagName('style');
-    const styleElement = styleElements[styleElements.length];
+    const styleElement = styleElements[styleElements.length - 1];
 
     is.equal(
-      styleElement && styleElement.innerText,
+      styleElement && styleElement.textContent,
       styles,
       'inserts our styles into the <head>'
     );
@@ -249,8 +251,6 @@ test('Adds and removes styles', (is) => {
       'removes them after the test'
     );
   });
-
-  is.end();
 });
 
 test.skip('`test.only` works as they say in the ads', (is) => {
