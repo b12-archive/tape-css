@@ -7,7 +7,7 @@ const {jsdom} = require('jsdom');
 
 const tape = require('tape');
 
-test('Doesn’t change the `tape` instance', (is) => {
+test('Doesn’t modify the `tape` instance', (is) => {
   const tapeClone = clone(tape);
   freeze(tapeClone.Test);
   freeze(tapeClone);
