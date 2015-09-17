@@ -182,6 +182,7 @@ test('Adds and removes DOM', (is) => {
 
   tapeCss('Whatever', {
     dom: tree,
+    document: doc,
   }, (localIs) => {
     is.ok(
       doc.body.contains(button) &&
