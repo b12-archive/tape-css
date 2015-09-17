@@ -8,6 +8,7 @@
 !/module.js
 !/test.js
 !/webpack.config.js
+!/.doxie.render.js
 /*/
 !/module/
 !/test/
