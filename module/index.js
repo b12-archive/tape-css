@@ -53,23 +53,29 @@ export default (tape) => {
     );
     // TODO: Throw if there’s no `document`;
 
+    // Wrap the `callback` with our candy floss wonders:
     const wrappedCallback = (is) => {
       if (dom) {
+        // Save the contents of our DocumentFragment before they get nuked.
         const domToRemove = (dom.nodeType === DOCUMENT_FRAGMENT_NODE ?
           arrayFrom(dom.children) :
           [dom]
         );
 
+        // Add the DOM.
         document.body.appendChild(dom);
 
+        // Schedule the cleanup.
         is.on('end', () => {
           domToRemove.forEach(element => document.body.removeChild(element));
         });
       }
 
+      // Run the original callback.
       callback(is);
     };
 
+    // Export the final API.
     tape(
       name,
       options::drop(['dom']),
