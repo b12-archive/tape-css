@@ -124,7 +124,7 @@ test('Every dog has some space to breathe', {
 
 [hyperscript]:   https://www.npmjs.com/package/hyperscript
 
-######  4
+######  4 (work in progress!)
 
 Whenever you want to see how your layout actually looks like, use `test.only`. We’ll only execute this one test and we won’t reset the DOM and styles afterwards. That’s pretty useful while debugging.
 
