@@ -25,14 +25,14 @@ const DOCUMENT_FRAGMENT_NODE = 11;
   *
   * @jsig
   *   test(tape) => (
-  *     name?: String,
-  *     options?: {
-  *       // All `tape` options +
+  *     name?:     String,
+  *     options?:  {
+  *       // All original `tape` options, and:
   *       dom?:       Element | DocumentFragment
   *       styles?:    String
   *       document?:  Document
   *     },
-  *     callback: Function
+  *     callback:  Function
   *   ) => void
   */
 export default (tape) => {
