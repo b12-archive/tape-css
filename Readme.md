@@ -50,7 +50,7 @@ Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightwei
 
 
 
-<div                                             id="/installation">&nbsp;</div>
+<a                                                 id="/installation"></a>&nbsp;
 
 Installation
 ------------
@@ -62,7 +62,7 @@ $ npm install tape-css
 
 
 
-<div                                                    id="/usage">&nbsp;</div>
+<a                                                        id="/usage"></a>&nbsp;
 
 Usage
 -----
@@ -179,7 +179,7 @@ of `options`:
 
 
 
-<div                                                  id="/license">&nbsp;</div>
+<a                                                      id="/license"></a>&nbsp;
 
 License
 -------
