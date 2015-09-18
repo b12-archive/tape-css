@@ -135,6 +135,8 @@ test.only('Need to debug this', /* … */);
 test('Works alright', /* … */);
 ```
 
+NOTE: This probably doesn’t work yet. Comment out your `t.end()` to get a similar effect.
+
 
 
 
