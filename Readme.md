@@ -1,3 +1,4 @@
+<div                                                         id="/">&nbsp;</div>
 [![Coveralls – test coverage
 ](https://img.shields.io/coveralls/studio-b12/tape-css.svg?style=flat-square)
 ](https://coveralls.io/r/studio-b12/tape-css)
@@ -17,7 +18,7 @@
 
 
 
-<div                                                         id="/">&nbsp;</div>
+<p                                                                   >&nbsp;</p>
 
 tape-css
 ========
