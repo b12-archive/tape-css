@@ -32,20 +32,19 @@ Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightwei
 
 
 
-<p align="center"><a
-  title="Graphic by the great Justin Mezzell"
-  href="http://justinmezzell.tumblr.com/post/91142673693"
-  >
-  <br/>
+<p align="center">
   <br/>
   <img
-    src="Readme/Cassette.gif"
-    width="400"
-    height="300"
+    alt="Screencast"
+    src="Readme/screencast.gif"
+    width="640"
+    height="464"
   />
+  <div align="right"><sup>
+    We use <em><a href="https://www.npmjs.com/package/hihat">hihat</a></em> and <em><a href="https://www.npmjs.com/package/tap-dev-tool">tap-dev-tool</a></em> together with *tape-css* in the screencast.
+  </sup></div>
   <br/>
-  <br/>
-</a></p>
+</p>
 
 
 
