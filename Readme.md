@@ -188,7 +188,7 @@ of `options`:
 Credits
 -------
 
-This module was inspired by *[quixote](https://github.com/jamesshore/quixote)*. Thumbs up for the great idea [@jamesshore](https://github.com/jamesshore).
+This module was inspired by *[quixote](https://github.com/jamesshore/quixote)*. Thumbs up for the great idea [@jamesshore](https://github.com/jamesshore)!
 
 It turned out that *quixote* wasn’t easy to use with *tape* though. As well as that, it comes with heavy abstractions (over 3K lines of code) and its own assertion engine – while everything you need for assertions comes with *tape* already.
 
