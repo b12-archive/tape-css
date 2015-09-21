@@ -41,7 +41,7 @@ Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightwei
     height="464"
   />
   <div align="right"><sup>
-    We use <em><a href="https://www.npmjs.com/package/hihat">hihat</a></em> and <em><a href="https://www.npmjs.com/package/tap-dev-tool">tap-dev-tool</a></em> together with *tape-css* in the screencast.
+    We use <em><a href="https://www.npmjs.com/package/hihat">hihat</a></em> and <em><a href="https://www.npmjs.com/package/tap-dev-tool">tap-dev-tool</a></em> together with <em>tape-css</em> in the screencast.
   </sup></div>
   <br/>
 </p>
