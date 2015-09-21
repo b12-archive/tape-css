@@ -164,7 +164,7 @@ Running it took 3 seconds ±200 ms. That’s over 330 tests and 500 DOM operatio
 
 ***tape-css* just feels lightening-fast.**
 
-It turns out much of the measured time is just the browser rendering the initial page. We tried to time how much that takes though – we got wildly differing results though. Feel free to submit a PR if you manage to work this out.
+It turns out much of the measured time is just the browser rendering the initial page. We tried to time how much that takes – we got wildly differing results though. Feel free to submit a PR if you manage to work this out.
 
 
 
