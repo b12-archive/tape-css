@@ -101,29 +101,37 @@ test('Roses are red, <span>s are blue', {
 
 ######  3
 
-*tape-css* is made to play well with other tools. *[hyperscript][]* can make your tests nicer to read and write:
+*tape-css* is made to play well with other tools. *[hyperscript][]* and *[computed-style][]* can make your tests nicer to read and write:
 
 ```js
 const h = require('hyperscript');
-const dogOne = h('div.dog');
-const dogTwo = h('div.dog');
+const style = require('computed-style');
+const personOne = h('.person');
+const personTwo = h('.person');
 
-test('Every dog has some space to breathe', {
-  dom: h('div', [dogOne, dogTwo]),
-  style: '.dog { margin-bottom: 10px; }',
+test('Everyone has some space to breathe', {
+  dom: h('div', [personOne, personTwo]),
+  styles: '.person { margin-bottom: 10px } * { padding: 5px }',
 }, (is) => {
   is.equal(
-    dogTwo.getBoundingClientRect().bottom -
-    dogOne.getBoundingClientRect().top,
+    personTwo.getBoundingClientRect().bottom -
+    personOne.getBoundingClientRect().top,
     10,
-    '10 px dog to dog'
+    '10 px between people'
+  );
+
+  is.equal(
+    style(personOne, 'padding-right'),
+    '5px',
+    'one has room to move his arm'
   );
 
   is.end();
 })
 ```
 
-[hyperscript]:   https://www.npmjs.com/package/hyperscript
+[hyperscript]:      https://www.npmjs.com/package/hyperscript
+[computed-style]:   https://www.npmjs.com/package/computed-style
 
 ######  4 (work in progress!)
 
