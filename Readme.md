@@ -158,9 +158,9 @@ NOTE: This probably doesn’t work yet. Comment out your `t.end()` to get a simi
 Performance
 -----------
 
-Does [928 ms for 21 tests](#/screencast) look slow to you? We thought so as well – so we wanted to check why. We created **400 specs** with **1000 assertions** to check that. Every spec had its own DOM tree and style element created, injected and cleaned up (4 operations per spec). We run and timed that a couple of times in the very same Chrome you’re seeing in the screencast.
+Does [928 ms for 21 tests](#/screencast) look slow to you? We thought so as well – so we wanted to check why. We created 400 specs with 1000 assertions to check that. Every spec had its own DOM tree and style element created, injected and cleaned up (4 operations per spec). We run and timed that a couple of times in the very same Chrome you’re seeing in the screencast.
 
-Running it took **3 seconds ±200 ms**. That’s over 330 tests and 500 DOM operations per second!
+Running it took 3 seconds ±200 ms. That’s over 330 tests and 500 DOM operations per second!
 
 ***tape-css* just feels lightening-fast.**
 
