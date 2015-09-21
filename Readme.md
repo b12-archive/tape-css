@@ -32,7 +32,7 @@ Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightwei
 
 
 
-<p align="center">
+<p align="center" id="/screencast">
   <br/>
   <br/>
   <img
@@ -42,10 +42,24 @@ Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightwei
     height="464"
   />
   <div align="right"><sup>
-    We use <em><a href="https://www.npmjs.com/package/hihat">hihat</a></em> and <em><a href="https://www.npmjs.com/package/tap-dev-tool">tap-dev-tool</a></em> together with <em>tape-css</em> in the screencast.
+    That’s how <em><a href="https://www.npmjs.com/package/hihat">hihat</a></em> and <em><a href="https://www.npmjs.com/package/tap-dev-tool">tap-dev-tool</a></em> play together with <em>tape-css</em>.
   </sup></div>
   <br/>
 </p>
+
+
+
+
+<a                                                  id="/performance"></a>&nbsp;
+
+Performance
+-----------
+
+Does [928 ms for 21 tests](#/screencast) look slow to you? We thought so as well – so we wanted to check why. We created **400 specs** with **1000 assertions** to check that. Every spec had its own DOM tree and style element created, injected and cleaned up (4 operations per spec). We run and timed that a couple of times in the very same Chrome you’re seeing in the screencast. Guess what.
+
+Running it took **3 seconds ±200 ms**. That’s over 330 tests and 500 DOM operations per second!
+
+*tape-css* just feels lightening-fast.
 
 
 
