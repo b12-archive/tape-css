@@ -41,9 +41,10 @@ Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightwei
     width="640"
     height="464"
   />
-  <div align="right"><sup>
-    That’s how <em><a href="https://www.npmjs.com/package/hihat">hihat</a></em> and <em><a href="https://www.npmjs.com/package/tap-dev-tool">tap-dev-tool</a></em> play together with <em>tape-css</em>.
-  </sup></div>
+  <br/>
+  <sup>
+    That’s how <em><a href="https://www.npmjs.com/package/budo">budo</a></em> + <em><a href="https://www.npmjs.com/package/tap-dev-tool">tap-dev-tool</a></em> + <em>tape-css</em> play together. Other great options: <em><a href="https://www.npmjs.com/package/hihat">hihat</a></em>, <em><a href="https://www.npmjs.com/package/testron">testron</a></em>.
+  </sup>
   <br/>
 </p>
 
