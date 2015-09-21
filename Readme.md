@@ -46,21 +46,11 @@ Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightwei
     That’s how <em><a href="https://www.npmjs.com/package/budo">budo</a></em> + <em><a href="https://www.npmjs.com/package/tap-dev-tool">tap-dev-tool</a></em> + <em>tape-css</em> play together. Other great options: <em><a href="https://www.npmjs.com/package/hihat">hihat</a></em>, <em><a href="https://www.npmjs.com/package/testron">testron</a></em>.
   </sup>
   <br/>
+  <sup>
+    <a href="#/performance">Looks slow?</a>
+  </sup>
+  <br/>
 </p>
-
-
-
-
-<a                                                  id="/performance"></a>&nbsp;
-
-Performance
------------
-
-Does [928 ms for 21 tests](#/screencast) look slow to you? We thought so as well – so we wanted to check why. We created **400 specs** with **1000 assertions** to check that. Every spec had its own DOM tree and style element created, injected and cleaned up (4 operations per spec). We run and timed that a couple of times in the very same Chrome you’re seeing in the screencast. Guess what.
-
-Running it took **3 seconds ±200 ms**. That’s over 330 tests and 500 DOM operations per second!
-
-*tape-css* just feels lightening-fast.
 
 
 
@@ -159,6 +149,22 @@ test('Works alright', /* … */);
 ```
 
 NOTE: This probably doesn’t work yet. Comment out your `t.end()` to get a similar effect.
+
+
+
+
+<a                                                  id="/performance"></a>&nbsp;
+
+Performance
+-----------
+
+Does [928 ms for 21 tests](#/screencast) look slow to you? We thought so as well – so we wanted to check why. We created **400 specs** with **1000 assertions** to check that. Every spec had its own DOM tree and style element created, injected and cleaned up (4 operations per spec). We run and timed that a couple of times in the very same Chrome you’re seeing in the screencast.
+
+Running it took **3 seconds ±200 ms**. That’s over 330 tests and 500 DOM operations per second!
+
+***tape-css* just feels lightening-fast.**
+
+It turns out much of the measured time is just the browser rendering the initial page. We tried to time how much that takes though – we got wildly differing results though. Feel free to submit a PR if you manage to work this out.
 
 
 
