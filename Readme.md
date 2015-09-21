@@ -3,7 +3,7 @@
 ](https://img.shields.io/coveralls/studio-b12/tape-css.svg?style=flat-square)
 ](https://coveralls.io/r/studio-b12/tape-css)
  [![Travis – build status
-](https://img.shields.io/travis/studio-b12/tape-css/master.svg?style=flat-square)
+](https://img.shields.io/travis/studio-b12/tape-css.svg?style=flat-square)
 ](https://travis-ci.org/studio-b12/tape-css)
  [![David – status of dependencies
 ](https://img.shields.io/david/studio-b12/tape-css.svg?style=flat-square)
