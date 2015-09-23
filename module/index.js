@@ -6,6 +6,63 @@ const insertCss = require('insert-css');
 
 const DOCUMENT_FRAGMENT_NODE = 11;
 
+const getArgsAndOptions = (args) => {
+  // Get args. Based on
+  // https://github.com/substack/tape/blob/aadcf4a9/lib/test.js .
+  const name = find(args, (arg) => typeof arg === 'string');
+  const options = find(args, (arg) => typeof arg === 'object') || {};
+  const callback = find(args, (arg) => typeof arg === 'function');
+
+  // Get options.
+  const {dom, styles} = options;
+  const document = (
+    options.document ||
+    (typeof window !== 'undefined' && window.document) ||
+    null
+  );
+  // TODO: Throw if there’s no `document`.
+
+  return {
+    name, callback, dom, styles, document,
+    options: options::drop(['dom', 'styles', 'document']),
+  };
+};
+
+const wrappedCallback = ({
+  dom,
+  styles,
+  callback,
+  document,
+  only = false,
+}) => (t) => {
+  // Wrap the `callback` with our candy floss wonders:
+  if (dom) {
+    // Save the contents of our DocumentFragment before they get nuked.
+    const domToRemove = (dom.nodeType === DOCUMENT_FRAGMENT_NODE ?
+      arrayFrom(dom.children) :
+      [dom]
+    );
+
+    // Add the DOM.
+    document.body.appendChild(dom);
+
+    // Schedule the cleanup.
+    if (!only) t.on('end', () => {
+      domToRemove.forEach(element => document.body.removeChild(element));
+    });
+  }
+
+  if (styles) {
+    const styleElement = insertCss(styles, {document});
+    if (!only) t.on('end', () => {
+      styleElement.parentNode.removeChild(styleElement);
+    });
+  }
+
+  // Run the original callback.
+  callback(t);
+};
+
  /**
   * If you use tape, you’ll feel right at home. Give us an instance of `tape`.
   * We won’t change its [existing API][] in any way. We just add a couple
@@ -38,102 +95,16 @@ const DOCUMENT_FRAGMENT_NODE = 11;
   */
 export default (tape) => {
   const tapeCss = (...args) => {
-    // Determine arguments – based on
-    // https://github.com/substack/tape/blob/aadcf4a9/lib/test.js .
-    const name = find(args, (arg) => typeof arg === 'string');
-    const options = find(args, (arg) => typeof arg === 'object') || {};
-    const callback = find(args, (arg) => typeof arg === 'function');
-
-    // Get options.
-    const {dom, styles} = options;
-    const document = (
-      options.document ||
-      (typeof window !== 'undefined' && window.document) ||
-      null
+    const {name, options, callback, dom, styles, document} = (
+      getArgsAndOptions(args)
     );
-    // TODO: Throw if there’s no `document`;
 
-    // Wrap the `callback` with our candy floss wonders:
-    const wrappedCallback = (t) => {
-      if (dom) {
-        // Save the contents of our DocumentFragment before they get nuked.
-        const domToRemove = (dom.nodeType === DOCUMENT_FRAGMENT_NODE ?
-          arrayFrom(dom.children) :
-          [dom]
-        );
-
-        // Add the DOM.
-        document.body.appendChild(dom);
-
-        // Schedule the cleanup.
-        t.on('end', () => {
-          domToRemove.forEach(element => document.body.removeChild(element));
-        });
-      }
-
-      if (styles) {
-        const styleElement = insertCss(styles, {document});
-        t.on('end', () => styleElement.parentNode.removeChild(styleElement));
-      }
-
-      // Run the original callback.
-      callback(t);
-    };
-
-    // Export the final API.
-    tape(
-      name,
-      options::drop(['dom']),
-      wrappedCallback
+    tape(name, options,
+      wrappedCallback({dom, styles, document, callback})
     );
   };
 
   assign(tapeCss, tape);
-
-  tapeCss.only = (...args) => {
-    // Determine arguments – based on
-    // https://github.com/substack/tape/blob/aadcf4a9/lib/test.js .
-    const name = find(args, (arg) => typeof arg === 'string');
-    const options = find(args, (arg) => typeof arg === 'object') || {};
-    const callback = find(args, (arg) => typeof arg === 'function');
-
-    // Get options.
-    const {dom, styles} = options;
-    const document = (
-      options.document ||
-      (typeof window !== 'undefined' && window.document) ||
-      null
-    );
-    // TODO: Throw if there’s no `document`;
-
-    // Wrap the `callback` with our candy floss wonders:
-    const wrappedCallback = (t) => {
-      if (dom) {
-        // Save the contents of our DocumentFragment before they get nuked.
-        const domToRemove = (dom.nodeType === DOCUMENT_FRAGMENT_NODE ?
-          arrayFrom(dom.children) :
-          [dom]
-        );
-
-        // Add the DOM.
-        document.body.appendChild(dom);
-      }
-
-      if (styles) {
-        insertCss(styles, {document});
-      }
-
-      // Run the original callback.
-      callback(t);
-    };
-
-    // Export the final API.
-    tape.only(
-      name,
-      options::drop(['dom']),
-      wrappedCallback
-    );
-  };
 
   return tapeCss;
 };
