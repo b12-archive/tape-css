@@ -253,6 +253,61 @@ test('Adds and removes styles', (is) => {
   });
 });
 
-test.skip('`test.only` works as they say in the ads', (is) => {
-  is.end();
+test('`test.only` works as they say in the ads', (is) => {
+  const blindTape = tape.createHarness({exit: false});
+  const tapeCss = tapeCss_(blindTape);
+  blindTape.createStream({objectMode: true});
+    // No need to test the output of `tapeCss` unless our tests fail.
+
+  is.plan(4);
+
+  const styles = 'span {font-size: 73px}';
+  const span = doc.createElement('span');
+
+  tapeCss('Shouldn’t run', () => {
+    is.fail(
+      'test before `test.only` doesn’t run'
+    );
+  });
+
+  tapeCss.only('Whatever', {
+    styles,
+    dom: span,
+    document: doc,
+  }, (localIs) => {
+    const styleElements = doc.head.getElementsByTagName('style');
+    const styleElement = styleElements[styleElements.length - 1];
+
+    is.equal(
+      styleElement && styleElement.textContent,
+      styles,
+      'inserts our styles into the <head>'
+    );
+
+    is.equal(
+      span.parentNode,
+      doc.body,
+      'inserts our DOM to the <body>'
+    );
+
+    localIs.end();
+
+    is.ok(
+      doc.head.contains(styleElement),
+      'doesn’t remove styles after the test'
+    );
+
+    is.ok(
+      doc.body.contains(span),
+      'doesn’t remove the DOM after the test'
+    );
+
+    is.end();
+  });
+
+  tapeCss('Shouldn’t run', () => {
+    is.fail(
+      'test after `test.only` doesn’t run'
+    );
+  });
 });

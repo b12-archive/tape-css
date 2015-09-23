@@ -138,7 +138,7 @@ test('Everyone has some space to breathe', {
 [hyperscript]:      https://www.npmjs.com/package/hyperscript
 [computed-style]:   https://www.npmjs.com/package/computed-style
 
-######  4 (work in progress!)
+######  4
 
 Whenever you want to see how your layout actually looks like, use `test.only`. We’ll only execute this one test and we won’t reset the DOM and styles afterwards. That’s pretty useful while debugging.
 
@@ -147,8 +147,6 @@ test('All is well', /* … */);
 test.only('Need to debug this', /* … */);
 test('Works alright', /* … */);
 ```
-
-NOTE: This probably doesn’t work yet. Comment out your `t.end()` to get a similar effect.
 
 
 
