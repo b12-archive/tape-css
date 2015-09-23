@@ -87,7 +87,53 @@ export default (tape) => {
       wrappedCallback
     );
   };
+
   assign(tapeCss, tape);
+
+  tapeCss.only = (...args) => {
+    // Determine arguments – based on
+    // https://github.com/substack/tape/blob/aadcf4a9/lib/test.js .
+    const name = find(args, (arg) => typeof arg === 'string');
+    const options = find(args, (arg) => typeof arg === 'object') || {};
+    const callback = find(args, (arg) => typeof arg === 'function');
+
+    // Get options.
+    const {dom, styles} = options;
+    const document = (
+      options.document ||
+      (typeof window !== 'undefined' && window.document) ||
+      null
+    );
+    // TODO: Throw if there’s no `document`;
+
+    // Wrap the `callback` with our candy floss wonders:
+    const wrappedCallback = (t) => {
+      if (dom) {
+        // Save the contents of our DocumentFragment before they get nuked.
+        const domToRemove = (dom.nodeType === DOCUMENT_FRAGMENT_NODE ?
+          arrayFrom(dom.children) :
+          [dom]
+        );
+
+        // Add the DOM.
+        document.body.appendChild(dom);
+      }
+
+      if (styles) {
+        insertCss(styles, {document});
+      }
+
+      // Run the original callback.
+      callback(t);
+    };
+
+    // Export the final API.
+    tape.only(
+      name,
+      options::drop(['dom']),
+      wrappedCallback
+    );
+  };
 
   return tapeCss;
 };
