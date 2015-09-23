@@ -8,9 +8,9 @@
  [![David – status of dependencies
 ](https://img.shields.io/david/studio-b12/tape-css.svg?style=flat-square)
 ](https://david-dm.org/studio-b12/tape-css)
- [![Stability: alpha
-](https://img.shields.io/badge/stability-alpha-yellowgreen.svg?style=flat-square)
-](https://github.com/studio-b12/tape-css/issues/3)
+ [![Stability: beta
+](https://img.shields.io/badge/stability-beta-green.svg?style=flat-square)
+](https://github.com/studio-b12/tape-css/milestones/1.0)
  [![Code style: airbnb
 ](https://img.shields.io/badge/code%20style-airbnb-777777.svg?style=flat-square)
 ](https://github.com/airbnb/javascript)
