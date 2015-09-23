@@ -33,7 +33,7 @@ const wrappedCallback = ({
   styles,
   callback,
   document,
-  only = false,
+  only,
 }) => (t) => {
   // Wrap the `callback` with our candy floss wonders:
   if (dom) {
@@ -61,6 +61,19 @@ const wrappedCallback = ({
 
   // Run the original callback.
   callback(t);
+};
+
+const tapeFunction = ({tape, only}) => (...args) => {
+  const {name, options, callback, dom, styles, document} = (
+    getArgsAndOptions(args)
+  );
+
+  (only ?
+    tape.only :
+    tape
+  )(name, options,
+    wrappedCallback({dom, styles, document, callback, only})
+  );
 };
 
  /**
@@ -93,18 +106,10 @@ const wrappedCallback = ({
   *     callback     : Function
   *   ) => void
   */
-export default (tape) => {
-  const tapeCss = (...args) => {
-    const {name, options, callback, dom, styles, document} = (
-      getArgsAndOptions(args)
-    );
-
-    tape(name, options,
-      wrappedCallback({dom, styles, document, callback})
-    );
-  };
-
-  assign(tapeCss, tape);
-
-  return tapeCss;
-};
+export default (tape) => assign(
+  tapeFunction({tape, only: false}),
+  tape,
+  {
+    only: tapeFunction({tape, only: true}),
+  }
+);
