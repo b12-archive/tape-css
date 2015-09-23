@@ -1,6 +1,6 @@
 {
   "name": "tape-css",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-beta",
   "description": "CSS unit testing, tape-style",
   "dependencies": {
     "array-find": "^1.0.0",
