@@ -39,7 +39,7 @@ const wrappedCallback = ({
   if (dom) {
     // Save the contents of our DocumentFragment before they get nuked.
     const domToRemove = (dom.nodeType === DOCUMENT_FRAGMENT_NODE ?
-      arrayFrom(dom.children) :
+      arrayFrom(dom.childNodes) :
       [dom]
     );
 
