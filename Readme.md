@@ -28,11 +28,13 @@
 </h1>
 
 
-<p align="center"><strong>
-  CSS unit testing. Lightning-fast. tape-style.
-</strong></p>
+<p                                                                   >&nbsp;</p>
 
-<p align="center">
+<h4                                                      align="center"><strong>
+  CSS unit testing. Lightning-fast. <em><a href="https://www.npmjs.com/package/tape">tape</a></em>-style.
+</strong></h4>
+
+<p                                                               align="center">
   Isolates DOM and styles for lightning-fast unit testing. As elegant and lightweight as <em><a href="https://www.npmjs.com/package/tape">tape</a></em> itself.
 </p>
 
