@@ -28,7 +28,7 @@
 </h1>
 
 
-<p                                                                   >&nbsp;</p>
+<p                                                                    ><br/></p>
 
 <h4                                                      align="center"><strong>
   CSS unit testing. Lightning-fast. <em><a href="https://www.npmjs.com/package/tape">tape</a></em>-style.
@@ -41,7 +41,7 @@
 
 
 
-<a                                                         id="/demo"></a>&nbsp;
+<a                                                          id="/demo"></a><br/>
 
 Demo
 ----
@@ -68,7 +68,7 @@ Demo
 
 
 
-<a                                                 id="/installation"></a>&nbsp;
+<a                                                  id="/installation"></a><br/>
 
 Installation
 ------------
@@ -80,7 +80,7 @@ $ npm install tape-css
 
 
 
-<a                                                        id="/usage"></a>&nbsp;
+<a                                                         id="/usage"></a><br/>
 
 Usage
 -----
@@ -165,7 +165,7 @@ test('Works alright', /* … */);
 
 
 
-<a                                                  id="/performance"></a>&nbsp;
+<a                                                   id="/performance"></a><br/>
 
 Performance
 -----------
@@ -181,7 +181,7 @@ It turns out much of the measured time is just the browser rendering the initial
 
 
 
-<a                                                          id="/api"></a>&nbsp;
+<a                                                           id="/api"></a><br/>
 
 API
 ---
@@ -224,7 +224,7 @@ of `options`:
 
 
 
-<a                                                      id="/credits"></a>&nbsp;
+<a                                                       id="/credits"></a><br/>
 
 Credits
 -------
@@ -238,7 +238,7 @@ We were after something simple which does one thing (<50 LOC last time we checke
 
 
 
-<a                                                      id="/license"></a>&nbsp;
+<a                                                       id="/license"></a><br/>
 
 License
 -------
