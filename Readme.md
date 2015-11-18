@@ -24,7 +24,7 @@
     alt="git.io/tape-css"
     width="404"
     height="472"
-    src="https://cdn.rawgit.com/studio-b12/tape-css/519fc6e/logo.svg"
+    src="https://cdn.rawgit.com/studio-b12/tape-css/519fc6e/tape-css.svg"
   />
 </h1>
 
