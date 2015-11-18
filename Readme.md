@@ -19,9 +19,15 @@
 
 
 <p                                                                   >&nbsp;</p>
+<h1                                                              align="center">
+  <img
+    alt="git.io/tape-css"
+    width="404"
+    height="472"
+    src="https://cdn.rawgit.com/studio-b12/tape-css/519fc6e/logo.svg"
+  />
+</h1>
 
-tape-css
-========
 
 **CSS unit testing. Ligtening-fast. tape-style.**
 
