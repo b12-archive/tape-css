@@ -35,7 +35,7 @@
 </strong></h4>
 
 <p                                                               align="center">
-  Isolates DOM and styles for lightning-fast unit testing. As elegant and lightweight as <em><a href="https://www.npmjs.com/package/tape">tape</a></em> itself.
+  Isolates DOM and styles for reproducible unit tests. As elegant and lightweight as <em><a href="https://www.npmjs.com/package/tape">tape</a></em> itself.
 </p>
 
 
