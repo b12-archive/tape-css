@@ -1,7 +1,7 @@
 {
   "name": "tape-css",
   "version": "1.0.1-beta",
-  "description": "CSS unit testing, tape-style",
+  "description": "CSS unit testing. Lightning-fast. tape-style.",
   "dependencies": {
     "array-find": "^1.0.0",
     "array-from": "^2.0.2",
