@@ -18,7 +18,6 @@
 
 
 
-<p                                                                   >&nbsp;</p>
 <h1                                                              align="center">
   <img
     alt="git.io/tape-css"
@@ -29,16 +28,23 @@
 </h1>
 
 
-**CSS unit testing. Ligtening-fast. tape-style.**
+<p align="center"><strong>
+  CSS unit testing. Ligtening-fast. tape-style.
+</strong></p>
 
-Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightweight as *[tape][]* itself.
-
-[tape]:  https://www.npmjs.com/package/tape
-
-
+<p align="center">
+  Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightweight as <em><a href="https://www.npmjs.com/package/tape">tape</a></em> itself.
+</p>
 
 
-<p align="center" id="/screencast">
+
+
+<a                                                         id="/demo"></a>&nbsp;
+
+Demo
+----
+
+<p align="center">
   <br/>
   <br/>
   <img
@@ -55,7 +61,6 @@ Isolates DOM and styles for ligtening-fast unit testing. As elegant and lightwei
   <sup>
     <a href="#/performance">Looks slow?</a>
   </sup>
-  <br/>
 </p>
 
 
@@ -87,6 +92,7 @@ const tape = require('tape');
 const test = require('tape-css')(tape);  // We don’t change `tape` in any way.
 ```
 
+[tape]:        https://www.npmjs.com/package/tape
 [tape-catch]:  https://www.npmjs.com/package/tape-catch
 [blue-tape]:   https://www.npmjs.com/package/blue-tape
 
