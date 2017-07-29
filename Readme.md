@@ -1,4 +1,3 @@
-<p                                                                   id="/"></p>
 [![Coveralls – test coverage
 ](https://img.shields.io/coveralls/studio-b12/tape-css.svg?style=flat-square
 )](https://coveralls.io/r/studio-b12/tape-css
@@ -189,6 +188,7 @@ API
 <!-- @doxie.inject start -->
 <!-- Don’t remove or change the comment above – that can break automatic updates. -->
 <div align="right"><sub>JSIG SIGNATURE <a href="http://jsig.biz/">(?)</a></sub></div>
+
 ```js
 test(tape) => (
   name?        : String,
