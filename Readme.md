@@ -1,4 +1,3 @@
-<p                                                                   id="/"></p>
 [![Coveralls – test coverage
 ](https://img.shields.io/coveralls/studio-b12/tape-css.svg?style=flat-square
 )](https://coveralls.io/r/studio-b12/tape-css
